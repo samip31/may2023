@@ -1,0 +1,112 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // TRY THIS: Try running your application with "flutter run". You'll see
+        // the application has a purple toolbar. Then, without quitting the app,
+        // try changing the seedColor in the colorScheme below to Colors.green
+        // and then invoke "hot reload" (save your changes or press the "hot
+        // reload" button in a Flutter-supported IDE, or press "r" if you used
+        // the command line to start the app).
+        //
+        // Notice that the counter didn't reset back to zero; the application
+        // state is not lost during the reload. To reset the state, use hot
+        // restart instead.
+        //
+        // This works for code too, not just values: Most code changes can be
+        // tested with just a hot reload.
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "User Details",
+          style: TextStyle(color: Colors.white, fontSize: 24),
+        ),
+        backgroundColor: Colors.teal,
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    height: 100,
+                    width: 100,
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        "data:image/webp;base64,UklGRsYQAABXRUJQVlA4ILoQAABQiwCdASo4ATgBPuFqrFIopak3JbJLWuAcCWduiIZk9X/XyQuOHiifv7T8U4os+K08X4Iv3jfYGMkUr2vZI4ZUVJSM7V+KuE/cn10h0K1gs6THkMxmzv6wllPHQthhCc6qLWJK2nMGvRkdTTyBv4Et/xAYbIQvBzqrGPlt2n1m7GHUYVZLoiGUJcjkFJP/01OL9wYk5KDwY/RkGBZKKZ/5w168APFqp38jkuNDN/9+0lw7Z9nIBwiSdiCx655oJ3b8hNgUFm65mVB1OXj47OSs5sfKIziyvBm3FOtoHx6szvxGIU9tiF8EaesElRlVpECyc0r/KdDOH8RqueA24sQAZk/1CFkhxfxPR/rP8pHS0Aj6TXSjhbYRC6tkD4I7TvYiLPFFhI78o4Yiyq/hlv993PWSgmLHcADkaXTT0X3/ii2D6b6vflDckENHuzZJP5nF1bnk1D6/IgZltGC3M70ynvepOQWxNmigyg8vtpvfH+sJufL8x99v9b0rMMaRtpTPsSigF4t440C6xpRVYYMtdy65h6/CfCI7+OZWt676sCBjVxjT1LIW0YFr61wId3lWixeilAXfBCvCFOSANQ2iCM5efAnauzdQrZe8OIqaHi4qGv9OkfRuNNCbs5X7/YOLoOnVJsjVqr8j5DxnaeOlhiRqTaRQGe56vaUZna1gB2Lsav3HqUok9v4kF1BKcncFbN/JTJ5hsygWd95cNAJfDN3R2o+xgb8UJoyt4MkhoFw/u4tkjcrO+q4pKqWGLbEN/i/mx6BmeT73Cd4zAP9H1/OW9FNma7k4wqEq15cURnGPVOYwhVqUh0ygyzJA/DQdnT1FAYOuL/c24GLWbkMVdadGhjUVVG0Cih2kLlpCkM0nU+AfcttLPbRC/eVch9A2G8iQsDFirlFy+jhsfMa/fRYzlYtaqfDbwAvWfUXaCZxgxKHBUfmOHAtD0Sqk3Exz7apd5UEBdEN9ZyFQqJK+xH/imikHHOHiwQTCbw1obHL1ccm6mp7SeW7EMsHsWfYyemE78scIgQw1yjtF2F7yIhS+l66kWOHgBNw401rmUvkh2KnndMDbyJoPbOwzWBmcj9/DAIOp653h9IiLGwW1KRWdgcXzXSLkB8nfe4IQHkacXgd2uxUKsJsOHEYT6TOiMkOET2q/Jax0A8PoTSy8YNKN9udAKUDIgRJ6RUpW2+kIfW3K6PWrvFHT5ZIZzmEfc4AYZfYc+TdKPZskwzU3GfPwSu5M6aEj+NPt6RMmdNxQzBlPqAlhsUg+/vrWKwKXecsHn2t52RQhayiyHJ9dbg2Tk/8gvyv8VoBFxqa2W024Z4ULBvwj6HiAtjdgfk7g+fNcXxLyNtTWxDP2E6pBOb2KwgkvPaFYG6/0k49H+w6T+VeH+CA2v+q+tqxPoGNCHvRP1LKBWbokZTXpJbJUStJxjiozxkP2xbMQfFB3lAIWyXAWQfP51eGXAWRQWOxyZxdza/KLMJ+Bb6I+zzut3IAAAP7t29n5fxeqEwcDe4ptJrimCluONpYic2EhubdSpZd+RGT6h/+h64DvJPa6P+ajuoOhiVZS5VPyaTrbZ+kHieI+Xv3utFNCBPK0rfRtRm3Ak4D3tWNw37ptYOe3+6LDIaQD4ITXv+LFvMdZ24oZDea3XLdSEaE2VXbvTVBRuznvXFPfPqerXeveCCECQ285TWECK5pmVWjIVGdzRzDMNq9DEeXO180vZlHES0OH9RfgSDcn94nrcIVto/a09ZzHpxOjejG/xCaRGC2jP0NbJg4RS+klK62YKJgxTxx7To1vUkzJaWL6Z0g5JVgpBFlR2x/PBJkPk7aC5TF9UiZDCgyfuSCsZbeKzVPcfg5vcGeya5MdnJVDlGwhIN+9OqMddEsIjFN5JaO9tHliKTg01WOLGTt77eyfepFN6Ujkp48FO6axox+6xKE0DrPrBCtYiH4UBhHSvGlKLObXUdl1ddghJYoTKLNFn+j7aanj6NVSRTJUsn9JtgJ/gOyG8Bz1lACtybIgwdCUw6iZskaZSEUkVofo1wcI4xmWUJzQboBtykl+ubP71FICLj4N4ztipgBNkUxq/kWqpVKvb+v8Hu0nXk/awqa0FwUEWrHg5sONDJvgNzy2m8B+3INiNq5IDd6r+GS3NANvcXKdMPpMUHtfCEy10WbmA/FOCmhz88JDG/zonGIlkrJnIbPDXrIxqjPSWxyQRaFfj93bO5aryptPx6sU2V6bhnL9A0yieUWFpHPUgVzYPLIxQ8TileWKvAmQRk0TH+UTfiCp+Vfe33nw+7Q7sufUMq7qIgdTH1O0tw8Gcolq3/0xwHd4DYqEAWVqQzFz9T4x0SI85CNPUMErnfKE6BFZSb7yCsS1sQyMJEAza9ByyZWa034uaaABYCcPlL0ZrvagONT4LBPdm/Dvdf7zSrNqx5J4GPFKPqDaHtAC9zlqQAxvWURJZ30G5gWXdceeXQ1bWw3rHMsLjslNqIDMYRCp0xJt+VYRxVBOeSzW6j8xiq/ReRPJqZjOx87rHhJdcWAZ4/uiFds2kCAwRY7xcEw64MLqA4roZqrwUPibiOpiznCT3tnS56ZUYQcViopkKcX1iy0HGideJn3HmRvDpdb64jMkuNVPiegd0jrKk+5S+N5b5/P85hQZFkWs+x7GiA7e37vUGk4dSVje8boXexLAOBqw/gkitJEAtsGMiOHAIyWyQTq54YEWWcPKsPBVmrbVf5qmg2L3iOFQqllRNxLepo8iTu7cktM9YGN8Vh4sDSZWQO67h/rPNf12niW2SRLQOu52PilP9ivpOhQ2AI7lL1qlFPtTVBmYFJYU+c5nEEzYJJajqwelzF8yU0kYJ2JjjyEcUryXy4j+C+1CENm4bbPlqfxhiQNuYp42O/+qC8RgiDDGkSP1tyzrCwG/hUb2pQp39AmPFs5bpROr6KCNO78MIpFAJHGRandwsoNmfhblFVeBjtLLI+yYJZKoY2vG5lC3qEDo75RFl3jLbp0akTJWRwaUpQPvpKuKzWY3hoIZGusllcUyqBE7Xfbq2SpGCG9iJ4aoVBs4QNajx8+gUsyprVdvbQKdhtr1STtxsRIaUt1vu9DQXIaBQPGqUjuaDCLCsEv9V7VNG639U2rjG+RMWaMXvIfMnYBlyehaKA8rOgsKgKfB4VMscNCBrhSP5EqtVH80gNFuvo8G+bc4uinj9PbQZ80hFRmOyMZHqHhXs3zKGz4BGchkNptsA5Lev5kmKK97GPgPkvnuDCQ1Eu95NAZho0bBT0FUvQ52gUEJ7fHsd+2BeXcVIK7BIfofUA2lRs2Xtepx6a3smXy2swG61BU43gtWWOVRaAWjVuJ53iubQAj/21Xn8TWE7B3/POEfpNTBiXB62HpsoCVyTr1TbvwdZiLvNOQSXf/ctLz2d9n3p37AL7XG2LuDh2qWIhwWItid26bN7mxXuP9ZD74LEyzUtconWg4XCJWUlrDWitiq7lQlPrBwcUSlfxgd7NHh2AgxpDzTxnFU9t3thQyMc8sC+4/ckLPsfrhYA+iD2NyNemY9Zb1zfveVrxuT4E2OLSXnGoGnhkKUln7XQWAWoYrdGcMPW/FU28hEecjTCYJdjMaW1CR5f2aeb8NgmKiiEubUQD2ikxOEHV7oMTaSe15wqQay9zDyX64WM4rzFSFR5qgIAKnbs2FbUYCB5EvvOAEiyMZz+MSiNrleayKxVx2BJJnGNRiLW/JopI9+0iLarGbo07A7c7t0MwlmfmZnAwFDQgNvVL7E065rBSl04fkseZqmJqHBNaFSRrxgnOoOEpLbYm3EHcjZ8Y8YYrT8czAs0iYK9bgkMALedCliZxq1Jy4wguieDqWOxnFsWDcgW1KMRxNJtpuQC6OkNSq+RwOvoY5y1qD4bJDX0Ht8sqHxwZh821RMTPUPEsMldSwKxXE/hhvNjqwyXaqtg2s9iPjMnZn0b4YZHzkRXwFLj1z8CcQWCYDJf8cmpYkqER7FJvnkUsiM9nganRnE8VcxUCB4eLEffX+lsCvtr/fYG70E4G6KhIIGrOUqjNv6bISyB5h2svzqL1vKFu+89mZL1RyIq3CWSSdXMiH6tZyEW9/xwpfgIvtexwP4OYG3oSsWeDUWqhT3bEjt4zf3Rox+3bVzwBIf6JB5yzt3izkRLomyKca9l9zwLgxlTqKw8TMPmH9VB3UuKPIqMSHFgXhv85MNq0cHyrHPpUVgd8IGpC23GmI+Scan4BJrFC7FHqjp42KVQxxEO2UzrBcuo4l68jNpoep4oVgB0dB0bdQP6nKeQQ3hpyo91HHDIQQFJKU5fMrJvG79PX0WwjLdEt0CHIr8zm5GMzzOEZfIv7cvJ+sKekUgvcx60EAOuwJ4XsYouXOL7xwfPKSIGA8XVcQuVoiVIrY85ONgkBELxlph8VUKPqbooPOEfQ63S8RnDHoukbCIr6+modMsmT0mmODXUbLy5Lsem9f/xZMO2HTfZFCGg292L1NhJyVtVppKk6NzIgxBmiXiz2LLzkiAg8lFfwYGvz1QEfZ6WDWGFQifh3DfAIsFBN2qrI5/v86p6xMu5dOM4LWQM4QIF/1Kvp6yS8OO0aqv8sCCewbZp4n7ZBmXIwOup7+nv23AdOT3QRjbETr80rdKOWqYOcSSAK3T+BFvMh7aGyVXnEuOepbwT4LlgJ0i9NGJpCGgeUAJzNQ48++olRiRIS+iwlEFvuBy9DjB+VXilBmJMX8Ad9TOcZGAdziBxIeO0P4oC3Hw0xt5sW0mRp2CFIKu8REqFEkjb6n0x9X+BEo5aIqvuUa7gfaXmihDHu7vCFJnPq0/FReq+kbAFSIe/h/S5IWun97PxYh3sQNU9PWjga2UzHaXNoAZYo4CqIanDUi9tkz8PIgCEqC/YG7Adp8VP9lJl9IKAetVWb5W7NPkmdvY92tqdIymKLGA0BOAK52EVCSgBg9Zem5vnrAbVJ4Dn7DIX3Ele0Zb10vbjY+59Npgj0JGDbBs9OGDFhn1eoEiZ5ylM5boHFhVTDmRvZJLMkM7eaxGITjwYSYnR83gIr1zA+GLw/hDnVHja1jazrXu8m3v4QYnjZ+0lq+gsPcC1WB7DCnh8ESdS0R3t0Nbrc0G3Tpoly47HeLLaaQGPh3G2XEDE17jKTImiQXfYv7uJHbFIAgwsHk1CgZJAqCVX8aWZB5uZSqLRTEifV33guxizsHhsy6glbX8tIXqcPGuYd2H/mxLJjsnHz9gkUmjZctB/0jM73K5MTOo2Jz/uteatn2BlPp+gyxTzqm+4oGFGkCgLSnaGwEYEh6fKI5PpuC5TSbfjW/qjCJpiLuvkvIQIUJqFEZQ4BWgg5VrywXmy+q9jo7Btiz20Q//VN5fBpcTnFTdmQ+KeFqQyYTOo5PWq+qyGnFQ0wkyLkzrMBC/srJtVFJFGJOKq5dOIDWRiJWE2cMFjt9tX3OJ6F+J6lOv8lU9KwgDp/GXO5VcNC1GEVRv/y49QtiGR+04BCUokF80EHwe1eZj9z27IJjZn6/Idr3cC54AJKYAtg/ePpgWuKvO4vywHR7UgGm6OR7zPDiaiVgARMEG8hsUmSVX4YlWS1UJx+Lr4G7q4pMeVOA+at5lloj+6smU5lZmoFKxweOAZl7mfLl3JkkMEfp+xB3oMlCOFQYrBDbhzfAM+hQ38wLikC1kSkcg7pTdIB4xvZRTFEdYqEQdXReQus2kgAAA",
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 50),
+                  Column(
+                    children: [
+                      Text("Adison Jones", style: TextStyle(fontSize: 32)),
+                      Text("Age: 63"),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(children: [Icon(Icons.email), Text("email@email.com")]),
+
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                  });
+                  count++;
+                },
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    border: Border.all(color: Colors.black, width: 2),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    count.toString(),
+                    style: TextStyle(color: Colors.white, fontSize: 32),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
